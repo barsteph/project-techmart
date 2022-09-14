@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- techmart_supplier form view -->
+  <record id="techmart_supplier_view_form" model="ir.ui.view">
+    <field name="name">Form Supplier</field>
+    <field name="model">techmart.supplier</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group string="Detail Supplier">
+            <field name="name"/>
+            <field name="alamat"/>
+            <field name="telp"/>
+            <field name="barang_supply"/>               
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- techmart_supplier tree view -->
+  <record id="techmart_supplier_view_tree" model="ir.ui.view">
+    <field name="name">Daftar Supplier</field>
+    <field name="model">techmart.supplier</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="alamat"/>
+        <field name="telp"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- techmart.supplier action window -->
+  <record id="techmart_supplier_action" model="ir.actions.act_window">
+    <field name="name">Supplier</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">techmart.supplier</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="techmart_supplier_menu_act" 
+            name="Supplier"
+            parent="techmart_menu_root"
+            action="techmart_supplier_action"
+            sequence="30"/>
+
+</odoo>

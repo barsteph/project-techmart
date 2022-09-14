@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- techmart.kelompokbarang form view -->
+  <record id="techmart_kelompokbarang_view_form" model="ir.ui.view">
+    <field name="name">Form Kategori Barang</field>
+    <field name="model">techmart.kelompokbarang</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group name="kelompokbarang" string="Detail Kategori">
+            <field name="name"/>
+            <field name="kode_kelompok"/>
+            <field name="barang_ids"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- techmart.kelompokbarang tree view -->
+  <record id="techmart_kelompokbarang_view_tree" model="ir.ui.view">
+    <field name="name">Kelompok Barang</field>
+    <field name="model">techmart.kelompokbarang</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="kode_kelompok"/>
+        <field name="jml_barang"/>
+        <field name="daftar"/>
+      </tree>
+    </field>
+  </record>
+
+<!-- techmart.kelompokbarang action window -->
+<record id="techmart_kelompokbarang_action" model="ir.actions.act_window">
+  <field name="name">Kelompok Barang</field>
+  <field name="type">ir.actions.act_window</field>
+  <field name="res_model">techmart.kelompokbarang</field>
+  <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="techmart_kelompok_menu_act" 
+            name="Kelompok Barang" 
+            parent="techmart_barang_menu_categ" 
+            action="techmart_kelompokbarang_action" 
+            sequence="20"/>
+
+</odoo>

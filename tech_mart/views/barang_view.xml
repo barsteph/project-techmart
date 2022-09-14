@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- techmart.barang form view -->
+<record id="techmart_barang_view_form" model="ir.ui.view">
+  <field name="name">Form Barang</field>
+  <field name="model">techmart.barang</field>
+  <field name="arch" type="xml">
+    <form string="">
+      <sheet>
+        <group name="barang" string="Detail Produk">
+          <field name="name"/>
+          <field name="seri"/>
+          <field name="harga_modal"/>
+          <field name="harga_jual"/>
+          <field name="stok"/>       
+        </group>
+        <group name="kelompokbarang" string="Kategori">
+          <field name="kelompok_id"/>
+        </group>
+        <group name="supplier" string="Supplier">
+          <field name="supplier_id"/>
+        </group>
+      </sheet>
+    </form>
+  </field>
+</record>
+
+<!-- techmart.barang tree view -->
+<record id="techmart_barang_view_tree" model="ir.ui.view">
+  <field name="name">Produk</field>
+  <field name="model">techmart.barang</field>
+  <field name="arch" type="xml">
+    <tree>
+      <field name="name"/>
+      <field name="seri"/>
+      <field name="stok"/>
+      <field name="harga_modal"/>
+      <field name="harga_jual"/>
+      <field name="supplier_id"/>
+    </tree>
+  </field>
+</record>
+
+  <!-- techmart.barang action window -->
+  <record id="techmart_barang_action" model="ir.actions.act_window">
+    <field name="name">Produk</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">techmart.barang</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="techmart_barang_menu_act"
+          name="Daftar Produk"
+        parent="techmart_barang_menu_categ"
+        action="techmart_barang_action"
+      sequence="10"/>
+
+</odoo>

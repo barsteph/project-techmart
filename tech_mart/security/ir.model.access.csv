@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_techmart_barang,access.techmart.barang,model_techmart_barang,,1,1,1,1
+access_techmart_kelompokbarang,access.techmart.kelompokbarang,model_techmart_kelompokbarang,,1,1,1,1
+access_techmart_supplier,access.techmart.supplier,model_techmart_supplier,,1,1,1,1
+access_techmart_penjualan,access.techmart.penjualan,model_techmart_penjualan,,1,1,1,1
+access_techmart_detailpenjualan,access.techmart.detailpenjualan,model_techmart_detailpenjualan,,1,1,1,1
+access_techmart_pegawai,access.techmart.pegawai,model_techmart_pegawai,,1,1,1,1
+access_techmart_kasir,access.techmart.kasir,model_techmart_kasir,,1,1,1,1
