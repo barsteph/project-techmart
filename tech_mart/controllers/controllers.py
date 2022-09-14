@@ -1,21 +1,35 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+from crypt import methods
+import json
+from odoo import http, models, fields
+from odoo.http import request
 
 
-# class TechMart(http.Controller):
-#     @http.route('/tech_mart/tech_mart', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class Techmart(http.Controller):
+    @http.route('/techmart/getbarang', auth='public', method=['GET'])
+    def getBarang(self, **kw):
+        barang = request.env['techmart.barang'].search([])
+        items = []
 
-#     @http.route('/tech_mart/tech_mart/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('tech_mart.listing', {
-#             'root': '/tech_mart/tech_mart',
-#             'objects': http.request.env['tech_mart.tech_mart'].search([]),
-#         })
+        for item in barang:
+            items.append({
+                'nama_barang': item.name,
+                'harga_jual': item.harga_jual,
+                'stok': item.stok
+            })
+        
+        return json.dumps(items)
 
-#     @http.route('/tech_mart/tech_mart/objects/<model("tech_mart.tech_mart"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('tech_mart.object', {
-#             'object': obj
-#         })
+    @http.route('/techmart/getsupplier', auth='public', method=['GET'])
+    def getSupplier(self, **kw):
+      supplier = request.env['techmart.supplier'].search([])
+      items = []
+
+      for item in supplier:
+        items.append({
+            'nama_perusahaan': item.name,
+            'alamat': item.alamat,
+            'no_telepon': item.telp,
+            'barang_id': item.barang_supply[0].name
+        })
+
+      return json.dumps(items)

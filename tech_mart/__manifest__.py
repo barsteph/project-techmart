@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'report_xlsx'],
 
     # always loaded
     'data': [
@@ -35,7 +35,8 @@
         'views/supplier_view.xml',
         'views/konsumen_view.xml',
         'views/penjualan_view.xml',
-
+        'report/report_view.xml',
+        'wizard/barangdatang_view.xml',
 
 
     ],
